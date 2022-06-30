@@ -11,5 +11,4 @@ printf("size of an int: xd byte(s)\n", sizeof(int));
 printf("size of a long int: xd byte(s)\n", sizeof(long int));
 printf("size of a long long int: xd byte(s)\n", sizeof(long long int));
 printf("size of a float: xd byte(s)\n", sizeof(float));
-return (0);
 }
