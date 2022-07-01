@@ -3,22 +3,29 @@
 #include <stdio.h>
 
 /**
- *main - Determine if a random number is positiv, negative or zero
+ * main - Entry point
  *
- *Return: always 0
-*/
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
 int n;
+
 srand(time(0));
 n = rand() - RAND_MAX / 2;
+
 if (n > 0)
-	printf("%d is positive\n", n);
-if (n == 0)
-	printf("%d is zero\n", n);
-if (n < o)
 {
-	printf("%d is negative\n", n);
+printf("%d is positive\n", n);
 }
+else if (n < 0)
+{
+printf("%d is negative\n", n);
+}
+else
+{
+printf("0 is zero\n");
+}
+
 return (0);
 }
