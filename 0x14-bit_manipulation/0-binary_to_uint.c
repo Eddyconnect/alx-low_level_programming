@@ -1,68 +1,58 @@
 #include "main.h"
-int _pow(int a, int b);
 
 /**
- * binary_to_uint - function that converts a binary number to an unsigned int
- * @b: char pointer parameter holding binary string
- *
- * Return: mydec (decimal/int value of binary).
- * if parameter b is null or not binary, return 0
+ * binary_to_uint -  function that converts a binary
+ * number to an unsigned int.
+ * @b: the string set of 1s and 0s
+ * Return: result
  */
 
 unsigned int binary_to_uint(const char *b)
 {
-	int size = 0;
-	int placev;
-	int i = 0;
-	int mydec = 0;
+	unsigned int result, count;
+	int i, len;
 
-	/*
-	 *determing the size of string
-	 */
-
-	while (b[i])
+	count = 0;
+	result = 1;
+	if (b == NULL)
 	{
-		size++;
-		i++;
-	}
-	placev = size - 1;
-	if (!b)
 		return (0);
-	if (b)
+	}
+
+	len = _strlen(b);
+
+	for (i = 0; i < len; i++)
 	{
-		i = 0;
-		while (b[i])
+		if (b[i] != '1' && b[i] != '0')
 		{
-			if (b[i] == '0' || b[i] == '1')
-			{
-				mydec = mydec + ((b[i] - '0') * _pow(2, placev));
-				placev--;
-			} else
-			{
-				return (0);
-			}
-			i++;
+			return (0);
 		}
 	}
-	return (mydec);
+
+	for (i = len - 1; i >= 0; i--)
+	{
+		if (b[i] == '1')
+		{
+			count += result;
+		}
+		result *= 2;
+	}
+	return (count);
 }
 
 /**
- * _pow - calculates a to power b (a^b)
- * @a: base parameter
- * @b: power parameter
- *
- * Return: value of a^b
+ * _strlen - Function to return the length of a string
+ * @s: string.
+ * Return: length.
  */
 
-int _pow(int a, int b)
+int _strlen(const char *s)
 {
-	int val = 1;
+	int i;
 
-	while (b)
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		val = val * a;
-		b--;
 	}
-	return (val);
+
+	return (i);
 }
